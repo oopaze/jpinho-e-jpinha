@@ -66,13 +66,13 @@ body {
   position: absolute;
 }
 .header__flowers {
-  left: -30px;
+  left: -40px;
   top: -10px;
 }
 
 .header__inverseflowers {
-  right: -30px;
-  bottom: -10px;
+  right: -40px;
+  bottom: -30px;
 }
 
 .image__container {
@@ -86,7 +86,6 @@ body {
   text-align: center;
   text-overflow: ellipsis;
   border-radius: 50%;
-
 }
 
 .header__text {
