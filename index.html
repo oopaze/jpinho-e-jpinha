@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmação 👫🏻✨</title>
+
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <main class="container">
+    <img src="./assets/imgs/flower.png" class="header__flowers" alt="flores">
+    <section class="header__container">
+      <hr>
+      <div class="image__container">
+        <img src="./assets/imgs/foto-casal.png" class="header__image" alt="foto do casal">
+      </div>
+      <hr>
+    </section>
+
+    <section class="container__content">
+      <p class="content__date">11.11.2023</p>
+      <p class="content__couplename">Carol + Pedro</p>
+    </section>
+    <img src="./assets/imgs/inverse-flower.png" class="header__inverseflowers" alt="flores">
+    <button type="button" class="button">Clique aqui para confirmar sua presença</button>
+    <a class="button">Clique aqui para acessar a lista de presentes</a>
+    <p class="container__text">O convite com todas as informações será entregue em breve!</p>
+  </main>
+
+  <!-- <form
+    name="confirm-form"
+    method="post"
+    action=""
+  >
+    <div>
+      <input type="text" name="nome" id="nome" placeholder="Escreva aqui seu nome">
+      <input type="hidden" name="data_de_confirmacao" id="data_de_confirmacao">
+      <button type="submit">Salvar</button>
+    </div>
+  </form> -->
+
+  <script>
+    const getDate = () => {
+      const now = new Date
+
+      return `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`
+    }
+
+    const dataDeConfirmacaoWidget = document.getElementById("data_de_confirmacao")
+    dataDeConfirmacaoWidget.value = getDate()
+  </script>
+
+  <script type="module" src="./assets/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js"></script>
+</body>
+</html>
