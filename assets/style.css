@@ -65,7 +65,7 @@ body {
 }
 
 .header__flowers, .header__inverseflowers {
-  width: 250px;
+  width: 200px;
 
   position: absolute;
   z-index: 1;
