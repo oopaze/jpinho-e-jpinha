@@ -25,6 +25,8 @@ body {
   background-size: cover;
 
   font-size: 1rem;
+
+  overflow: hidden;
 }
 
 .container {
