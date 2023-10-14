@@ -181,12 +181,16 @@ body {
   }
 
   .header__inverseflowers {
-    bottom: -60px;
+    bottom: -45px;
   }
 }
 
 @media (max-width: 370px) {
   html {
     font-size: 75%;
+  }
+
+  .header__inverseflowers {
+    bottom: -55px;
   }
 }
