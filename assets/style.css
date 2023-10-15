@@ -78,11 +78,6 @@ body {
   top: -10px;
 }
 
-.header__inverseflowers {
-  right: 0;
-  bottom: -30px;
-}
-
 .image__container {
   flex: 1;
   padding-top: 72px;
