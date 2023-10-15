@@ -6,7 +6,7 @@ const closeModal = (modal) => {
   modal.classList.remove("modal__open")
 }
 
-const configureModal = (modalId, buttonId, cancelCallback = () => {}) => {
+const configureModal = ({ modalId, buttonId, cancelCallback = () => {} }) => {
   const modal = document.querySelector(`#${modalId}`)
   const button = document.querySelector(`#${buttonId}`)
 

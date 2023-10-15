@@ -37,40 +37,87 @@
   >
     <div class="modal__backflip"></div>
     <div class="modal__content">
-      <!-- Modal Header -->
       <div class="modal__header">
-        <p class="modal__header__text">Confirme sua presença</p>
+        <h2 class="modal__header__text">Confirme sua presença</h2>
         <div class="modal__close">x</div>
       </div>
 
-      <!-- Modal Header -->
       <div class="modal__body">
-        <div>
-          <p class="modal__body__pre_text">
-            Estamos animados para compartilhar este dia especial com amigos e familiares.
-            Sua presença tornará o nosso casamento ainda mais significativo. ❣️
-            <br><br>
+        <p class="modal__body__pre_text">
+          Estamos animados para compartilhar este dia especial com amigos e familiares.
+          Sua presença tornará o nosso casamento ainda mais significativo. ❣️
+          <br><br>
 
-            Esperamos ver você lá para compartilhar o amor e a alegria! 🥰👫🏻
-            <br><br>
-          </p>
+          Esperamos ver você lá para compartilhar o amor e a alegria! 🥰👫🏻
+          <br><br>
+        </p>
 
-          <div class="input__group">
-            <label for="nome">Digite seu nome logo abaixo e clique em confirmar para confirmarmos sua presença. </label>
-            <span class="pointer__icon">👇🏽👇🏽👇🏽</span>
-            <input type="text" required name="nome" id="nome" placeholder="Ex.: José Pedro">
-            <input type="hidden" name="data_de_confirmacao" id="data_de_confirmacao">
-          </div>
+        <div class="input__group">
+          <label for="nome">Digite seu nome logo abaixo e clique em confirmar para confirmarmos sua presença. </label>
+          <span class="pointer__icon">👇🏽👇🏽👇🏽</span>
+          <input type="text" required name="nome" id="nome" placeholder="Ex.: José Pedro">
+          <input type="hidden" name="data_de_confirmacao" id="data_de_confirmacao">
         </div>
       </div>
 
-      <!-- Modal Footer -->
       <div class="modal__footer">
         <button class="modal__button modal__cancel__button" type="reset">Cancelar</button>
         <button class="modal__button modal__success__button" type="submit">Confirmar</button>
       </div>
     </div>
   </form>
+
+  <section class="modal__container" id="listas_casamento">
+    <div class="modal__backflip"></div>
+    <div class="modal__content">
+      <div class="modal__header">
+        <h2 class="modal__header__text">Listas de Presentes</h2>
+        <div class="modal__close">x</div>
+      </div>
+      <div class="modal__body">
+
+        <div class="listapresentes__content">
+          <ul class="store__card__container">
+            <li class="store__card" id="distribuidoraRoque" onclick="showGoogleLocation(this)">
+              <img src="./assets/imgs/distribuidora-roque.jpeg" alt="Distribuidora Roque" class="logo__image" />
+            </li>
+            <li class="store__card" id="gigi" onclick="showGoogleLocation(this)">
+              <img src="./assets/imgs/gigi-tecidos.jpeg" alt="Gigi Tecidos" class="logo__image" />
+            </li>
+            <li class="store__card" id="magalu" onclick="magaluClick(this)">
+              <img src="./assets/imgs/magalu.jpeg" alt="Magazine Luiza" class="logo__image" />
+            </li>
+          </ul>
+        </div>
+
+        <div class="googlemaps__location hidden">
+          <div class="mapouter">
+            <div class="gmap_canvas">
+              <iframe
+                class="gmap_iframe"
+                width="100%"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=distribuidora roque&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+
+        <p class="modal__body__pre_text">
+          Sinta-se à vontade para optar pela que melhor lhe convier.
+          Sua presença é o nosso maior presente!
+        </p>
+      </div>
+      <div class="modal__footer">
+        <button class="modal__button modal__cancel__button" type="reset">Fechar</button>
+      </div>
+    </div>
+  </section>
 
 
   <script src="./assets/scripts.js"></script>
@@ -86,7 +133,37 @@
     if (dataDeConfirmacaoWidget)
       dataDeConfirmacaoWidget.value = getDate()
 
-    configureModal("confirm_presence_modal", "open_confirm_presence")
+    configureModal({modalId: "confirm_presence_modal", buttonId: "open_confirm_presence"})
+    configureModal({modalId: "listas_casamento", buttonId: "open_listas_casamento"})
+
+    const distribuidoraRoque = `<iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=distribuidora roque&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>`
+    const gigi = `<iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=crato, gigi tecidos&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>`
+    const magalu = `<iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=200&amp;height=200&amp;hl=en&amp;q=crato, magazine luiza&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>`
+
+    const iframes = {
+      distribuidoraRoque,
+      gigi,
+      magalu
+    }
+
+    const magaluClick = (e) => {
+      if (confirm("Também temos uma lista virtual no magalu. Deseja ver?"))
+        window.open("https://www.finalfeliz.de/carol-jpedro", "_blank")
+
+      showGoogleLocation(e)
+    }
+
+    const showGoogleLocation = (e) => {
+      const actualIframe = iframes[e.id]
+
+      const googleLocaltionWidget = document.querySelector(".googlemaps__location")
+
+      if (googleLocaltionWidget) {
+        googleLocaltionWidget.classList.remove("hidden")
+        googleLocaltionWidget.querySelector(".gmap_canvas").innerHTML = actualIframe
+      }
+    }
+
   </script>
 
 </body>
