@@ -22,4 +22,8 @@ const configureModal = (modalId, buttonId, cancelCallback = () => {}) => {
     closeModal(modal)
     cancelCallback(e)
   })
+
+  modal.querySelector(".modal__backflip")?.addEventListener("click", () => {
+    closeModal(modal)
+  })
 }
