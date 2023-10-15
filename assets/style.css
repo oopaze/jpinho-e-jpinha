@@ -25,6 +25,8 @@ body {
   background-size: cover;
 
   font-size: 1rem;
+
+  width: 100%;
   min-height: 100vh;
 
   overflow-x: hidden;

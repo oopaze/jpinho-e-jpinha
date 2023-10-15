@@ -21,7 +21,7 @@
 .modal__content {
   max-width: 500px;
   min-width: 300px;
-  width: 100%;
+  width: 80%;
 
   position: absolute;
   top: 50%;
