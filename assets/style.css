@@ -49,6 +49,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 12px;
 }
 
 .header__container hr {
@@ -121,13 +123,15 @@ body {
 .content__date {
   font-family: 'Crimson Pro', serif;
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #545454;
+
+  margin-bottom: 8px;
 }
 
 .content__couplename {
   font-family: 'Angella White';
-  font-size: 6rem;
+  font-size: 5.5rem;
   color: #38c485;
 }
 
