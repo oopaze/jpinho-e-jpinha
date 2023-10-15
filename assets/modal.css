@@ -19,8 +19,8 @@
 }
 
 .modal__content {
-  min-width: 80%;
-  min-height: 60%;
+  max-width: 500px;
+  width: 80%;
 
   position: absolute;
   top: 50%;
