@@ -6,6 +6,7 @@
   <title>Confirmação 👫🏻✨</title>
 
   <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="./assets/modal.css">
 </head>
 <body>
   <main class="container">
@@ -22,25 +23,63 @@
       <p class="content__date">11.11.2023</p>
       <p class="content__couplename">Carol + Pedro</p>
     </section>
-    <button type="button" class="button">Clique aqui para confirmar sua presença</button>
+    <button type="button" class="button" id="open_confirm_presence">Clique aqui para confirmar sua presença</button>
     <a class="button">Clique aqui para acessar a lista de presentes</a>
     <p class="container__text">O convite com todas as informações será entregue em breve!</p>
 
     <img src="./assets/imgs/inverse-flower.png" class="header__inverseflowers" alt="flores">
   </main>
 
-  <!-- <form
+
+
+
+  <form
+    class="modal__container"
+    id="confirm_presence_modal"
     name="confirm-form"
     method="post"
     action=""
   >
-    <div>
-      <input type="text" name="nome" id="nome" placeholder="Escreva aqui seu nome">
-      <input type="hidden" name="data_de_confirmacao" id="data_de_confirmacao">
-      <button type="submit">Salvar</button>
-    </div>
-  </form> -->
+    <div class="modal__backflip"></div>
+    <div class="modal__content">
+      <!-- Modal Header -->
+      <div class="modal__header">
+        <p class="modal__header__text">Confirme sua presença</p>
+        <div class="modal__close">x</div>
+      </div>
 
+      <!-- Modal Header -->
+      <div class="modal__body">
+        <div>
+          <p class="modal__body__pre_text">
+            Estamos animados para compartilhar este dia especial com amigos e familiares.
+            Sua presença tornará o nosso casamento ainda mais significativo. ❣️
+            <br><br>
+
+            Esperamos ver você lá para compartilhar o amor e a alegria! 🥰👫🏻
+            <br><br>
+          </p>
+
+          <div class="input__group">
+            <label for="nome">Digite seu nome logo abaixo e clique em confirmar para confirmarmos sua presença. </label>
+            <span class="pointer__icon">👇🏽👇🏽👇🏽</span>
+            <input type="text" required name="nome" id="nome" placeholder="Ex.: José Pedro">
+            <input type="hidden" name="data_de_confirmacao" id="data_de_confirmacao">
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal__footer">
+        <button class="modal__button modal__cancel__button" type="reset">Cancel</button>
+        <button class="modal__button modal__success__button" type="submit">Confirmar</button>
+      </div>
+    </div>
+  </form>
+
+
+  <script src="./assets/scripts.js"></script>
+  <script src="./assets/modal.js"></script>
   <script>
     const getDate = () => {
       const now = new Date
@@ -49,10 +88,11 @@
     }
 
     const dataDeConfirmacaoWidget = document.getElementById("data_de_confirmacao")
-    dataDeConfirmacaoWidget.value = getDate()
+    if (dataDeConfirmacaoWidget)
+      dataDeConfirmacaoWidget.value = getDate()
+
+    configureModal("confirm_presence_modal", "open_confirm_presence")
   </script>
 
-  <script type="module" src="./assets/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js"></script>
 </body>
 </html>
