@@ -101,6 +101,9 @@
   border: 1px solid rgba(131, 128, 128, 0.289);
 
   cursor: pointer;
+
+  color: #545454;
+  text-transform: uppercase;
 }
 
 .modal__button:disabled {
